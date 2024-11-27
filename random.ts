@@ -1,47 +1,46 @@
-import { randFloat } from '@ngneat/falso';
-import { CoreCompetencies } from './types'; // CoreCompetency 인터페이스 임포트
+import {fakerKO} from '@faker-js/faker'
 
-// 대한민국 성씨 배열
-const koreanLastNames = [
-  '가', '간', '갈', '감', '강', '고', '곽', '구', '권', '김', '나', '남', '노', '도', '류', '마', '민', '박', '방', '서', '성', '손',
-  '송', '신', '양', '여', '오', '우', '유', '이', '임', '장', '전', '정', '조', '최', '한', '허', '홍'
-];
-
-// 랜덤 성씨를 생성하는 함수
-const generateRandomKoreanLastName = (): string => {
-  const randomIndex = Math.floor(Math.random() * koreanLastNames.length);
-  return koreanLastNames[randomIndex];
-};
-
-
-
-// 랜덤 퍼센트 값을 생성하는 함수
-const generateRandomPercentage = (): string => {
-  return `${randFloat({ min: 0, max: 120, precision: 0.01 })}%`;
-};
+import { AccountInfo, CoreCompetencies } from './types'; // CoreCompetency 인터페이스 임포트
 
 // CoreCompetency 객체에 랜덤 성 또는 랜덤 퍼센트 데이터 할당
-export const coreCompetencyData: CoreCompetencies = {
-  username: generateRandomKoreanLastName(),
-  email: 
-  password: 
-  serlead: generateRandomPercentage(), 
-  sympcomm: generateRandomPercentage(),  
-  originality: generateRandomPercentage(),
-  pliability: generateRandomPercentage(),
-  knowledgequest: generateRandomPercentage(),
-  psskills: generateRandomPercentage(),
-  globalmind: generateRandomPercentage(),
-  asianculture: generateRandomPercentage(),
+export const coreCompetencyData: {
+  user: AccountInfo;
+  competencies: CoreCompetencies;
+} = {
+  user: {
+    username: `${fakerKO.person.lastName()} ${fakerKO.person.firstName()}`,
+    email: fakerKO.internet.email(), 
+    password:  fakerKO.internet.password(),
+    studentnumber: fakerKO.number.float({ min: 10000000, max: 99999999 }),
+  },
+  competencies: {
+    serlead: fakerKO.number.float({min: 0, max: 120,  fractionDigits: 2}), 
+    sympcomm: fakerKO.number.float({min: 0, max: 120,  fractionDigits: 2}),  
+    originality: fakerKO.number.float({min: 0, max: 120,  fractionDigits: 2}),
+    pliability: fakerKO.number.float({min: 0, max: 120,  fractionDigits: 2}),
+    knowledgequest: fakerKO.number.float({min: 0, max: 120,  fractionDigits: 2}),
+    psskills: fakerKO.number.float({min: 0, max: 120,  fractionDigits: 2}),
+    globalmind: fakerKO.number.float({min: 0, max: 120,  fractionDigits: 2}),
+    asianculture: fakerKO.number.float({min: 0, max: 120,  fractionDigits: 2}),
+
+
+  },
 };
 
 
+// 음성 판단하는 문제
+// 음성 빅스비 변환 발화자 음화자 문제가 있음 
+// 발화자 인식 문제 
 
-// const koreanLastNames = ['김', '이', '박', '최'];
-// const koreanFirstNames = ['민준', '서윤', '지우'];
+// 해결할 수 있는 
 
-// const generateRandomFullName = (): string => {
-//   const lastName = koreanLastNames[Math.floor(Math.random() * koreanLastNames.length)];
-//   const firstName = koreanFirstNames[Math.floor(Math.random() * koreanFirstNames.length)];
-//   return `${lastName}${firstName}`;
-// };
+// 텍스트 돈 대학원은 
+// 대학원을 잘 찾으면 
+
+// 텍스로 가는 것이 유리하다...coreCompetencyData
+// G스타
+// E스타
+// 맘바 연구
+
+// 부피 걱정하기
+// 한글의 표같이 하기 - 그렇게 됐습니다. 

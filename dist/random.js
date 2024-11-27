@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.coreCompetencyData = void 0;
-var faker_1 = require("@faker-js/faker");
+const faker_1 = require("@faker-js/faker");
 // CoreCompetency 객체에 랜덤 성 또는 랜덤 퍼센트 데이터 할당
 exports.coreCompetencyData = {
     user: {
-        username: "".concat(faker_1.fakerKO.person.firstName(), " ").concat(faker_1.fakerKO.person.lastName()),
+        username: `${faker_1.fakerKO.person.firstName()} ${faker_1.fakerKO.person.lastName()}`,
         email: faker_1.fakerKO.internet.email(),
         password: faker_1.fakerKO.internet.password(),
         studentnumber: faker_1.fakerKO.number.float({ min: 10000000, max: 99999999 }),
